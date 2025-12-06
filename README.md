@@ -13,15 +13,17 @@ Project Setup
 
 Clone the repository
 
-git clone <your-github-repo-url>
+git clone <your-repo-url>
 cd multi_tenant_ecom
 
 
 Create and activate a virtual environment
 
 python -m venv venv
+
 # Linux / Mac
 source venv/bin/activate
+
 # Windows
 venv\Scripts\activate
 
@@ -57,23 +59,30 @@ Middleware (TenantMiddleware) sets request.tenant for all API views.
 All product and order queries are filtered by tenant, ensuring data isolation.
 
 Roles & Permissions
-Role	Permissions
-Owner	Full access to their store (products, orders)
-Staff	Manage products and orders within their tenant
-Customer	Can view and place orders; only sees their own orders
+| Role     | Permissions                                           |
+| -------- | ----------------------------------------------------- |
+| Owner    | Full access to their store (products, orders)         |
+| Staff    | Manage products and orders within their tenant        |
+| Customer | Can view and place orders; only sees their own orders |
+
 API Endpoints
 Products API
-Method	URL	Description	Permissions
-GET	/products/	List all products (public)	Public
-GET	/products/{id}/	Get product details	Public
-POST	/products/	Create a product	Owner / Staff
-PUT	/products/{id}/	Update a product	Owner / Staff
-DELETE	/products/{id}/	Delete a product	Owner / Staff
+| Method | URL             | Description                | Permissions   |
+| ------ | --------------- | -------------------------- | ------------- |
+| GET    | /products/      | List all products (public) | Public        |
+| GET    | /products/{id}/ | Get product details        | Public        |
+| POST   | /products/      | Create a product           | Owner / Staff |
+| PUT    | /products/{id}/ | Update a product           | Owner / Staff |
+| DELETE | /products/{id}/ | Delete a product           | Owner / Staff |
+
 Orders API
-Method	URL	Description	Permissions
-POST	/orders/place/	Place a new order (tenant-specific)	Authenticated
-GET	/orders/	List orders: customers see only theirs, vendors see all	Authenticated
+| Method | URL            | Description                                             | Permissions   |
+| ------ | -------------- | ------------------------------------------------------- | ------------- |
+| POST   | /orders/place/ | Place a new order (tenant-specific)                     | Authenticated |
+| GET    | /orders/       | List orders: customers see only theirs, vendors see all | Authenticated |
+
 Tenant + User Role Flow
+
                    ┌───────────────────────────────┐
                    │       Incoming Request         │
                    │   (with X-Tenant-Domain header │
@@ -106,6 +115,7 @@ Tenant + User Role Flow
 └─────────────────────────┘                       └─────────────────────────┘
 
 GitHub Submission Instructions
+
 # Initialize git (if not done already)
 git init
 
@@ -124,10 +134,7 @@ git branch -M main
 # Push to GitHub
 git push -u origin main
 
-
-✅ After pushing, your project is submission-ready.
-
-This README covers:
+This README now includes:
 
 Project setup
 
@@ -140,3 +147,4 @@ Role-based permissions
 Tenant + User Role flow diagram
 
 GitHub submission instructions
+
