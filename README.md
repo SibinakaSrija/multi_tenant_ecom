@@ -116,7 +116,7 @@ Tenant + User Role Flow
 
 GitHub Submission Instructions
 
-# Initialize git (if not done already)
+# Initialize git 
 git init
 
 # Add all files
@@ -146,5 +146,5 @@ Role-based permissions
 
 Tenant + User Role flow diagram
 
-GitHub submission instructions
+
 
